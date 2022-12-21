@@ -7,7 +7,15 @@ N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"   */
 int n;
 Console.WriteLine("Enter the number: ");
 int.TryParse(Console.ReadLine()!, out n);
-PrintNumbers(n, 1);
+
+if (n > 0)
+{
+    PrintNumbers(n, 1);
+}
+else
+{
+    PrintNegativeNumbers(n, 1);
+}
 void PrintNumbers(int first, int last)
 {
     if (first <= last)
@@ -16,5 +24,15 @@ void PrintNumbers(int first, int last)
     {
         Console.Write($"{first} ");
         PrintNumbers(first - 1, last);
+    }
+}
+void PrintNegativeNumbers(int first, int last)
+{
+    if (first >= last)
+        Console.Write($"{first} ");
+    else
+    {
+        Console.Write($"{first} ");
+        PrintNegativeNumbers(first + 1, last);
     }
 }
